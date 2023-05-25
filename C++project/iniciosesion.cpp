@@ -18,6 +18,7 @@ void loginup()
     {
         cout << "usuario o password incorrecto" << endl;
         system("pause");
+        exit(0);
         return;
     }
     if (password == "caballo123")
@@ -29,6 +30,7 @@ void loginup()
     {
         cout << "usuario o password incorrecto\n";
         system("pause");
+        exit(0);
         return;
     }
 }

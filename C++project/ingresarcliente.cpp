@@ -22,7 +22,6 @@ struct cliente
     char fechareserva[MAX], horareserva[MAX];
 } p[1];
 
-//uno de los tantos errores que me esta dando es que me esta pidiento presionar enter para continuar con el codigo, intenta repararlo y me mandas mensaje mientras lo hagas
 
 void addcliente()
 {
@@ -128,7 +127,7 @@ bool calcMAXpersonas()
 }
 
 // ejecucion final del codigo
-int main()
+ void agregarcliente()
 {
     SetConsoleOutputCP(CP_UTF8);
     addcliente();
@@ -147,5 +146,7 @@ int main()
     cout << "El dia " << p[registro].fechareserva << " ";
     cout << "a las " << p[registro].horareserva << endl;
 
-    return 0;
+
 }
+
+
