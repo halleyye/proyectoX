@@ -22,10 +22,7 @@ struct cliente
     char fechareserva[MAX], horareserva[MAX];
 } p[1];
 
-void limpiarBuffer()//uno de los tantos errores que me esta dando es que me esta pidiento presionar enter para continuar con el codigo, intenta repararlo y me mandas mensaje mientras lo haces
-{
-    cin.ignore(1000, '\n');
-}
+//uno de los tantos errores que me esta dando es que me esta pidiento presionar enter para continuar con el codigo, intenta repararlo y me mandas mensaje mientras lo hagas
 
 void addcliente()
 {
@@ -33,19 +30,16 @@ void addcliente()
     cout << "Bienvenido al sistema de Reservas La Colombina\n";
     // nombre completo del cluente
     cout << "Ingresa los primeros nombres del cliente:\n";
-    cin.getline(p[registro].nombre, MAX);
-    limpiarBuffer();
+    cin.getline(p[registro].nombre, MAX, '\n');
     cout << "Ingresa los apellidos:\n";
-    cin.getline(p[registro].apellidos, MAX);
-    limpiarBuffer();
+    cin.getline(p[registro].apellidos, MAX, '\n');
 }
 
 void ingcedula() // numero de cedula
 {
 
-    cout << "Numero de cedula: ";
-    cin.getline(p[registro].cedula, MAX);
-    limpiarBuffer();
+    cout << "Numero de cedula: \n";
+    cin.getline(p[registro].cedula, MAX, '\n');
 }
 int calcEdad() // verificar mayoria de edad
 {
@@ -62,7 +56,7 @@ int calcEdad() // verificar mayoria de edad
         year = 1900 + (atoi(&num1) * 10) + (atoi(&num2) / 10);
     }
 
-    if (year < 2005)
+    if (year <= 2005)
     {
         cout << "El cliente es mayor de edad." << endl;
     }
@@ -77,10 +71,8 @@ int calcEdad() // verificar mayoria de edad
 
 void numcel()
 {
-    cin.ignore();
     cout << "ingresa el numero de celular del cliente:\n";
-    cin.getline(p[registro].numcelular, MAX);
-    limpiarBuffer();
+    cout<<endl;cin.getline(p[registro].numcelular, MAX, '\n');
 }
 
 void tiposervicio()
@@ -89,10 +81,8 @@ void tiposervicio()
     cout << "1. VIP\n";
     cout << "2. Estandar\n";
     cout << "Por favor, seleccione el numero correspondiente al tipo de servicio: \n";
-    cin.getline(p[registro].servicio, MAX);
-    limpiarBuffer();
-    int opcion;
-    cin >> opcion;
+    cin.getline(p[registro].servicio, MAX, '\n');
+       int opcion = atoi(p[registro].servicio);
     switch (opcion)
     {
     case 1:
@@ -113,19 +103,16 @@ void tiposervicio()
 void fechayhorareserva()
 {
     cout << "Fecha en la que desea reservar: \n";
-    cin.getline(p[registro].fechareserva, MAX);
-    limpiarBuffer();
+    cin.getline(p[registro].fechareserva, MAX, '\n');
     cout << "Hora en la que desea su reserva: \n";
-    cin.getline(p[registro].horareserva, MAX);
-    limpiarBuffer();
+    cin.getline(p[registro].horareserva, MAX, '\n');
 }
 // numero maximo de personas a llegar
 
 void cantidadpersonas()
 {
     cout << "Cantidad de personas a llegar: " << endl;
-    cin.getline(p[registro].cantpersonas, 20);
-    limpiarBuffer();
+    cin.getline(p[registro].cantpersonas, 20, '\n');
 }
 // verificacion de la cantidad maxima de personas
 bool calcMAXpersonas()
@@ -134,11 +121,10 @@ bool calcMAXpersonas()
     while (cantmaxima > 20)
     {
         cout << "Excede el limite de acceso de clientes disponible.\n";
-        cout << "Por favor, vuelva a intentarlo con otro numero.";
+        cout << "Por favor, vuelva a intentarlo con otro numero."<<endl;
         cin.getline(p[registro].cantpersonas, 20, '\n');
         cantmaxima = atoi(p[registro].cantpersonas);
     }
-    return true;
 }
 
 // ejecucion final del codigo
@@ -157,7 +143,7 @@ int main()
     cout << "Numero de cedula: " << p[registro].cedula << endl;
     cout << "Numero de celular: " << p[registro].numcelular << endl;
     cout << "Contrato el servicio " << p[registro].servicio << endl;
-    cout << "arribando con " << p[registro].cantpersonas << "personas" << endl;
+    cout << "arribando con " << p[registro].cantpersonas << " personas" << endl;
     cout << "El dia " << p[registro].fechareserva << " ";
     cout << "a las " << p[registro].horareserva << endl;
 
